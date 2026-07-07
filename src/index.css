@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Brand palette (HSL)
+       Mint  #2EE6C5 = 170 79% 54%
+       Teal  #1D7069 = 174 59% 27%
+       Charcoal #242D36 = 212 21% 18%
+       Fog   #F5F9F8 = 165 21% 97%
+       White #FFFFFF                                        */
+    --background: 0 0% 100%;
+    --foreground: 212 21% 18%;
+
+    --fog: 165 21% 97%;
+    --mint: 170 79% 54%;
+    --mint-soft: 170 79% 92%;
+    --teal: 174 59% 27%;
+    --charcoal: 212 21% 18%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 212 21% 18%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 212 21% 18%;
+
+    --primary: 170 79% 54%;
+    --primary-foreground: 212 21% 18%;
+
+    --secondary: 174 59% 27%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 165 21% 97%;
+    --muted-foreground: 212 12% 40%;
+
+    --accent: 170 79% 92%;
+    --accent-foreground: 174 59% 27%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 165 15% 90%;
+    --input: 165 15% 90%;
+    --ring: 174 59% 27%;
+
+    --radius: 1rem;
+
+    --shadow-soft: 0 4px 24px -8px hsl(212 21% 18% / 0.08);
+    --shadow-card: 0 8px 40px -12px hsl(174 59% 27% / 0.12);
+    --shadow-glow: 0 20px 60px -20px hsl(170 79% 54% / 0.45);
+    --gradient-hero: radial-gradient(ellipse at top right, hsl(170 79% 92% / 0.6), transparent 60%),
+                     linear-gradient(180deg, hsl(0 0% 100%), hsl(165 21% 97%));
+    --gradient-mint: linear-gradient(135deg, hsl(170 79% 54%), hsl(174 59% 40%));
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Bricolage Grotesque', 'Space Grotesk', 'Montserrat', sans-serif;
+    letter-spacing: -0.035em;
+    font-feature-settings: "ss01";
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .bg-fog { background-color: hsl(var(--fog)); }
+  .bg-charcoal { background-color: hsl(var(--charcoal)); }
+  .text-charcoal { color: hsl(var(--charcoal)); }
+  .text-mint { color: hsl(var(--mint)); }
+  .text-teal { color: hsl(var(--teal)); }
+  .bg-mint { background-color: hsl(var(--mint)); }
+  .bg-mint-soft { background-color: hsl(var(--mint-soft)); }
+  .bg-teal { background-color: hsl(var(--teal)); }
+  .border-mint { border-color: hsl(var(--mint)); }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-card { box-shadow: var(--shadow-card); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .bg-gradient-hero { background: var(--gradient-hero); }
+  .bg-gradient-mint { background: var(--gradient-mint); }
+  .font-display { font-family: 'Bricolage Grotesque', 'Space Grotesk', 'Montserrat', sans-serif; letter-spacing: -0.035em; }
+  .font-label { font-family: 'Montserrat', sans-serif; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; }
+  .glass {
+    background: hsl(0 0% 100% / 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid hsl(0 0% 100% / 0.7);
+  }
+  .fade-up {
+    animation: fadeUp 0.8s ease-out both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  /* Scroll reveal */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.9s cubic-bezier(.22,.61,.36,1), transform 0.9s cubic-bezier(.22,.61,.36,1); }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* Hero chaos -> clarity */
+  @keyframes chaosDrift {
+    0%,100% { transform: translate(0,0) rotate(0deg); }
+    50%     { transform: translate(4px,-6px) rotate(3deg); }
+  }
+  @keyframes clarityFloat {
+    0%,100% { transform: translateY(0); }
+    50%     { transform: translateY(-6px); }
+  }
+  @keyframes flowDash {
+    to { stroke-dashoffset: -40; }
+  }
+  @keyframes pulseNode {
+    0%,100% { opacity: .55; }
+    50%     { opacity: 1; }
+  }
+  .chaos-piece { animation: chaosDrift 6s ease-in-out infinite; transform-origin: center; }
+  .clarity-piece { animation: clarityFloat 5s ease-in-out infinite; }
+  .flow-line { stroke-dasharray: 6 6; animation: flowDash 3.5s linear infinite; }
+  .pulse-node { animation: pulseNode 2.6s ease-in-out infinite; }
+
+  .glow-hover { transition: box-shadow .35s ease, transform .35s ease; }
+  .glow-hover:hover { box-shadow: 0 12px 40px -12px hsl(var(--mint) / 0.45), 0 4px 16px -6px hsl(var(--teal) / 0.15); transform: translateY(-3px); }
+}
